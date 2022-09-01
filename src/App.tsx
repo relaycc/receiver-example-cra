@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Receiver, FixedLaunch } from '@relaycc/receiver';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         >
           Learn React
         </a>
+        <Receiver>
+          <FixedLaunch peerAddress="0x45C9a201e2937608905fEF17De9A67f25F9f98E0"/>
+        </Receiver>
       </header>
     </div>
   );
