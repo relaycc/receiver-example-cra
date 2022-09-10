@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import {
   Launcher,
@@ -22,6 +22,13 @@ import {
   useSigner,
 } from "wagmi";
 import "@rainbow-me/rainbowkit/dist/index.css";
+import { Wallet } from "ethers";
+
+const devWallet =
+  process.env.NODE_ENV === "development"
+    ? new Wallet(process.env.REACT_APP_TEST_PK as string)
+    : undefined;
+
 const alchemyKey = "kmMb00nhQ0SWModX6lJLjXy_pVtiQnjx";
 
 const { chains, provider } = configureChains(defaultChains, [
@@ -75,7 +82,7 @@ function WalletExample() {
   const setWallet = useSetWallet();
 
   useEffect(() => {
-    setWallet(wallet || null);
+    setWallet(devWallet || wallet || null);
   }, [wallet, setWallet]);
 
   return <></>;
