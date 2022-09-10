@@ -12,6 +12,13 @@
   align-items: center;
 }
 
+.hover-scale {
+  transition: all 0.2s ease-in-out;
+}
+.hover-scale:hover {
+  transform: scale(1.1);
+}
+
 .launch-receiver {
   min-width: 10rem;
   background: #5203fc;
