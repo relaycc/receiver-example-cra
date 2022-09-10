@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Launcher, Window, useLaunch, useIsOpen } from "@relaycc/receiver";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
@@ -35,6 +35,12 @@ function BasicExample() {
         <div className="receiver-is-open">Receiver Window is Open</div>
       )}
       <h1>Then follow the instructions in the popup 🎉</h1>
+      <div className="push-to-bottom">
+        <p>
+          This example uses the default configuration, you can also try out{" "}
+          <Link to="/dynamic">dynamic addresses</Link>
+        </p>
+      </div>
       <Window />
       <Launcher />
     </div>
@@ -46,6 +52,7 @@ function DynamicExample() {
 
   return (
     <div className="full-flex-centered">
+      <h1 className="header">Message Any Address!</h1>
       <h1>You can turn any component into a Receiver Launcher</h1>
       <ConnectButton />
       <h1>and send the user straight into a conversation!</h1>
@@ -63,6 +70,12 @@ function DynamicExample() {
         Even Vitalik!
       </button>
       <h2>(Once he's joined the network 🎉)</h2>
+      <div className="push-to-bottom">
+        <p>
+          You should also check out the{" "}
+          <Link to="/">default configuration</Link>.
+        </p>
+      </div>
       <Window />
     </div>
   );
