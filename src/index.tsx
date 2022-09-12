@@ -36,8 +36,12 @@ const wagmiClient = createClient({
   provider,
 });
 
+// WARNING: DO NOT USE YOUR PERSONAL WALLET'S PRIVATE KEY HERE. USE A BURNER
+// WALLET OR TEST-SPECIFIC WALLET INSTEAD. SEE HERE FOR ONE OPTION TO CREATE
+// A BURNER WALLET: https://docs.ethers.io/v5/api/signer/#Wallet-createRandom
 const devWallet =
-  process.env.NODE_ENV === "development"
+  process.env.NODE_ENV === "development" &&
+  typeof process.env.REACT_APP_TEST_PK === "string"
     ? new Wallet(process.env.REACT_APP_TEST_PK as string)
     : undefined;
 
