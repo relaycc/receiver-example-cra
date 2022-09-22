@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { Launcher, Window, useLaunch, useIsOpen } from "@relaycc/receiver";
+import {
+  Launcher,
+  useLaunch,
+  useIsOpen,
+  Modal,
+  Intercom,
+  Window,
+} from "@relaycc/receiver";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Routes, Route, Link } from "react-router-dom";
 
@@ -9,6 +16,7 @@ function App() {
     <Routes>
       <Route path="/" element={<BasicExample />} />
       <Route path="dynamic" element={<DynamicExample />} />
+      <Route path="custom" element={<CustomExample />} />
     </Routes>
   );
 }
@@ -41,7 +49,9 @@ function BasicExample() {
           <Link to="/dynamic">dynamic addresses</Link>
         </p>
       </div>
-      <Window />
+      <Intercom>
+        <Window />
+      </Intercom>
       <Launcher />
     </div>
   );
@@ -76,7 +86,48 @@ function DynamicExample() {
           <Link to="/">default configuration</Link>.
         </p>
       </div>
-      <Window />
+      <Intercom>
+        <Window />
+      </Intercom>
+    </div>
+  );
+}
+
+function CustomExample() {
+  const launch = useLaunch();
+  const isOpen = useIsOpen();
+  const [position, setPosition] = useState<"modal" | "intercom">("intercom");
+
+  return (
+    <div className="custom">
+      <h1 className="header">Receiver is customizable!</h1>
+      <h1>For example, you could use it as a modal.</h1>
+      <button
+        className="launch-receiver hover-scale"
+        onClick={() => {
+          setPosition("modal");
+          launch();
+        }}
+      >
+        Modal
+      </button>
+      <h1>Or as an intercom widget.</h1>
+      <button
+        className="launch-receiver hover-scale"
+        onClick={() => {
+          setPosition("intercom");
+          launch();
+        }}
+      >
+        Intercom
+      </button>
+
+      <Modal isOpen={position === "modal" && isOpen}>
+        <Window className="bordered" />
+      </Modal>
+      <Intercom isOpen={position === "intercom" && isOpen}>
+        <Window />
+      </Intercom>
     </div>
   );
 }
