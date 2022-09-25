@@ -1,0 +1,43 @@
+{
+  "name": "@relaycc/receiver",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "version": "0.1.53",
+  "description": "The best way to add wallet messaging to your site.",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "lint": "eslint src/",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier . --write",
+    "typecheck": "tsc --emitDeclarationOnly false --noEmit",
+    "sanity": "npm run lint && npm run prettier && npm run typecheck && npm run build",
+    "patch": "npm version patch -m 'patch: Bump version to %s'",
+    "pub": "npm run lint && npm run prettier && npm run typecheck && npm run build && npm run patch && npm publish"
+  },
+  "author": "Relay",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "dependencies": {
+    "@ethersproject/abstract-signer": "^5.7.0",
+    "@ethersproject/address": "^5.7.0",
+    "@ethersproject/providers": "^5.7.0",
+    "@relaycc/xmtp-js": "0.1.2",
+    "framer-motion": "^4.1.17",
+    "gql": "^1.1.2",
+    "graphql-request": "^5.0.0",
+    "react-blockies": "^1.4.1",
+    "zustand": "^4.1.1"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/types/index.d.ts",
+  "yalcSig": "d1ef15e9684a1d920dd68f6a07a37c55"
+}

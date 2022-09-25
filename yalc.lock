@@ -1,0 +1,11 @@
+{
+  "version": "v1",
+  "packages": {
+    "@relaycc/receiver": {
+      "version": "0.1.53",
+      "signature": "d1ef15e9684a1d920dd68f6a07a37c55",
+      "file": true,
+      "replaced": "^0.1.53"
+    }
+  }
+}
