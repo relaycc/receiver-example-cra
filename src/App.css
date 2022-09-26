@@ -79,6 +79,21 @@
   font-weight: bold;
 }
 
+.header-with-link {
+  font-size: 1.25rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.header-with-link > a {
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
 .custom {
   height: 100vh;
   width: 100vw;
