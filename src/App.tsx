@@ -29,7 +29,7 @@ function BasicExample() {
     <div className="full-flex-centered">
       {" "}
       <header className="header-with-link">
-        Relay Receiver is open source, check it out on
+        View the open source code on
         <a
           href="https://github.com/relaycc/receiver"
           target="_blank"

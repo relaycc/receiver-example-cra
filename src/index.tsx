@@ -13,12 +13,17 @@ import {
   createClient,
   defaultChains,
   useSigner,
+  chain,
 } from "wagmi";
 import { Wallet } from "ethers";
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/dist/index.css";
 
 const alchemyKey = "kmMb00nhQ0SWModX6lJLjXy_pVtiQnjx";
+
+!defaultChains.includes(chain.polygon) && defaultChains.push(chain.polygon);
+!defaultChains.includes(chain.optimism) && defaultChains.push(chain.optimism);
+!defaultChains.includes(chain.arbitrum) && defaultChains.push(chain.arbitrum);
 
 const { chains, provider } = configureChains(defaultChains, [
   alchemyProvider({ apiKey: alchemyKey }),
