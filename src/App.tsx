@@ -34,7 +34,7 @@ function BasicExample() {
           href="https://github.com/relaycc/receiver"
           target="_blank"
           rel="noreferrer"
-          style={{ display: "flex", alignItems: "center"}}
+          style={{ display: "flex", alignItems: "center" }}
         >
           <svg
             viewBox="0 0 24 24"
@@ -91,13 +91,9 @@ function DynamicExample() {
           href="https://github.com/relaycc/receiver"
           target="_blank"
           rel="noreferrer"
-          style={{ display: "flex", alignItems: "center"}}
+          style={{ display: "flex", alignItems: "center" }}
         >
-          <svg
-            viewBox="0 0 24 24"
-            height={30}
-            width={30}
-          >
+          <svg viewBox="0 0 24 24" height={30} width={30}>
             <path
               fillRule="evenodd"
               clipRule="evenodd"
