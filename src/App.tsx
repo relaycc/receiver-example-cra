@@ -10,6 +10,7 @@ import {
 } from "@relaycc/receiver";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Routes, Route, Link } from "react-router-dom";
+import github from "./github.svg";
 
 function App() {
   return (
@@ -27,6 +28,18 @@ function BasicExample() {
 
   return (
     <div className="full-flex-centered">
+      {" "}
+      <header className="header-with-link">
+        Relay Receiver is open source, check it out on
+        <a
+          href="https://github.com/relaycc/receiver"
+          target="_blank"
+          rel="noreferrer"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <img src={github} alt="Link to relay Github page" />
+        </a>
+      </header>
       <h1 className="header">Relay Receiver Example App</h1>
       <h1>First connect a wallet</h1>
       <ConnectButton />
@@ -62,6 +75,17 @@ function DynamicExample() {
 
   return (
     <div className="full-flex-centered">
+      <header className="header-with-link">
+        Relay Receiver is open source, check it out on
+        <a
+          href="https://github.com/relaycc/receiver"
+          target="_blank"
+          rel="noreferrer"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <img src={github} alt="Link to relay github page" />
+        </a>
+      </header>
       <h1 className="header">Message Any Address!</h1>
       <h1>You can turn any component into a Receiver Launcher</h1>
       <ConnectButton />
@@ -100,6 +124,17 @@ function CustomExample() {
 
   return (
     <div className="custom">
+      <header className="header-with-link">
+        Relay Receiver is open source, check it out on
+        <a
+          href="https://github.com/relaycc/receiver"
+          target="_blank"
+          rel="noreferrer"
+          style={{ display: "flex", alignItems: "center" }}
+        >
+          <img src={github} alt="Link to relay github page" />
+        </a>
+      </header>
       <h1 className="header">Receiver is customizable!</h1>
       <h1>For example, you could use it as a modal.</h1>
       <button
