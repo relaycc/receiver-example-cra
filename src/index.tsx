@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-import { useSetWallet } from "@relaycc/receiver";
+import { useWallet, Receiver } from "@relaycc/receiver";
 import {
   WagmiConfig,
   configureChains,
@@ -53,8 +53,10 @@ root.render(
     <BrowserRouter>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-          <App />
-          <SetWalletExample />
+          <Receiver>
+            <App />
+            <SetWalletExample />
+          </Receiver>
         </RainbowKitProvider>
       </WagmiConfig>
     </BrowserRouter>
@@ -63,7 +65,7 @@ root.render(
 
 function SetWalletExample() {
   const { data: wallet } = useSigner();
-  const setWallet = useSetWallet();
+  const [, setWallet] = useWallet();
   console.log(wallet);
 
   useEffect(() => {

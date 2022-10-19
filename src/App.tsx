@@ -160,9 +160,11 @@ function CustomExample() {
       <Modal isOpen={position === "modal" && isOpen}>
         <Window className="bordered" />
       </Modal>
-      <Intercom isOpen={position === "intercom" && isOpen}>
-        <Window />
-      </Intercom>
+      {position === "intercom" && (
+        <Intercom>
+          <Window />
+        </Intercom>
+      )}
     </div>
   );
 }
