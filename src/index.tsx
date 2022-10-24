@@ -17,6 +17,7 @@ import {
 import { Wallet } from "ethers";
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/dist/index.css";
+import { XmtpClient } from "./XmtpClient";
 
 const alchemyKey = "kmMb00nhQ0SWModX6lJLjXy_pVtiQnjx";
 
@@ -53,7 +54,9 @@ root.render(
     <BrowserRouter>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider chains={chains}>
-          <Receiver>
+          <Receiver
+            config={{ xmtp: { client: XmtpClient, network: "production" } }}
+          >
             <App />
             <SetWalletExample />
           </Receiver>
