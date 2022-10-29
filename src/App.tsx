@@ -47,7 +47,7 @@ function BasicExample() {
       {isOpen || (
         <button
           className="launch-receiver hover-scale"
-          onClick={() => launch()}
+          onClick={() => launch({ id: "all conversations" })}
         >
           Launch Receiver
         </button>
