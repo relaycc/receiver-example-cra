@@ -17341,7 +17341,6 @@
         }
         startClientByIdentity(wallet, opts) {
             return __awaiter$6(this, void 0, void 0, function* () {
-                console.log('startClientByIdentity:: wallet is', wallet);
                 try {
                     const preexistingClient = this.clients[wallet.wallet.address];
                     if (preexistingClient !== undefined) {
