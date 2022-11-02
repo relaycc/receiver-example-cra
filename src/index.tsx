@@ -69,10 +69,17 @@ root.render(
 function SetWalletExample() {
   const { data: wallet } = useSigner();
   const [, setWallet] = useWallet();
-  console.log(wallet);
 
   useEffect(() => {
-    setWallet(devWallet || wallet || null);
+    if (devWallet === undefined) {
+      if (wallet !== null && wallet !== undefined) {
+        setWallet({ id: "signer wallet", wallet });
+      } else {
+        setWallet(null);
+      }
+    } else {
+      setWallet({ id: "identity wallet", wallet: devWallet });
+    }
   }, [wallet, setWallet]);
 
   return <></>;
